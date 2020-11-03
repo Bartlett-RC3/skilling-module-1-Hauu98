@@ -64,10 +64,5 @@ public class Session1Homework : MonoBehaviour {
         //Initialize a Dictionary
 
 
-    }
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }	
 }

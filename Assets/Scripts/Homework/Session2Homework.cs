@@ -7,12 +7,19 @@ public class Session2Homework : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //1. Write a function that uses a condition
+
+
+        //2. Write a for loop
+
+        for (int i = 0; i<5; i++ )
+        {
+            Debug.Log("冲！");
+        }
+        //3. Write a dog class and initialize an instance of the class
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
