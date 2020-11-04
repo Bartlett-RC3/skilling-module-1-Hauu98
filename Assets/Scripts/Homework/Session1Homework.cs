@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using RC3Students;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +63,22 @@ public class Session1Homework : MonoBehaviour {
         Debug.Log(myFirstIntList[0]);
 
         //Initialize a Dictionary
+        //Create a new dictionary of strings, with string keys.
+        Dictionary<string, Student> dict = new Dictionary<string, Student>();
 
+        Student stu1 = new Student("001", "Zhou", "Jielun", 15, "3年二班");
+        Student stu2 = new Student("002", "Wang", "Laoji", 15, "3年二班");
+        Student stu3 = new Student("003", "Li", "Xiaolong", 15, "3年二班");
+        Student stu4 = new Student("004", "Zhao", "Liying", 15, "3年二班");
 
-    }	
+        //Add to the Dictionary
+        dict.Add("Z", stu1);
+        dict.Add("W", stu2);
+        Student stu = dict["Z"];
+        //Remove from the Dictionary
+        dict.Remove("W");
+
+        Debug.Log(stu.LastName);
+
+    }
 }
