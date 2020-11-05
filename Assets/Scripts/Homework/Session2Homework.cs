@@ -68,7 +68,7 @@ public class Session2Homework : MonoBehaviour
     }
 
     /// <summary>
-    /// Minutes transfer to seconds
+    /// Transfer minute and hour to second
     /// </summary>
     /// <param name="m"></param>
     /// <returns></returns>
