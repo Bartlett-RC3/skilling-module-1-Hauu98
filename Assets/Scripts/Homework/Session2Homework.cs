@@ -27,6 +27,23 @@ public class Session2Homework : MonoBehaviour
             Debug.Log("冲！");
         }
 
+        float Cardboard = 0.00001f;
+        for (int i = 0; i < 30; i++)
+        {
+            Cardboard *= 2;
+        }
+        //While
+        //Exercise
+        float height = 100f;
+        int count = 0;
+        float distance = height;
+        while (height / 2 >= 0.01f)
+        {
+            height /= 2;
+            count++;
+            distance += height * 2;
+        }
+
         //3. Write a dog class and initialize an instance of the class
         dog1 = new Session2Homework_DogClass("小白", 3);
         dog2 = new Session2Homework_DogClass("小黑", 5);
