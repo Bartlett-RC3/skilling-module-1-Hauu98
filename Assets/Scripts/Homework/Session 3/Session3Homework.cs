@@ -6,8 +6,8 @@ public class Session3Homework : MonoBehaviour
 {
     //Variables
     public GameObject cube;
-    public int numberOfCubes = 5;
-    public float spaceing = 2.0f;
+    public int numberOfCubes = 10;
+    public float spaceing = 3.0f;
     private List<GameObject> cubeCopies = new List<GameObject>();
 
     // Start is called before the first frame update

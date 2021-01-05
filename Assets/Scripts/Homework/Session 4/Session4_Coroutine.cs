@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Session4_HC : MonoBehaviour
+public class Session4_Coroutine : MonoBehaviour
 {
     //Variables
     public GameObject columnPrefab;
@@ -53,5 +53,12 @@ public class Session4_HC : MonoBehaviour
            
         }
         Debug.Log("Finish!");
+    }
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(20, 20, 200, 40), "Press A or Click Here to Stop"))
+        {
+            IsLoading = false;
+        }
     }
 }
