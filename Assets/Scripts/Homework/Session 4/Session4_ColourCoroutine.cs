@@ -4,41 +4,45 @@ using UnityEngine;
 
 public class Session4_ColourCoroutine : MonoBehaviour
 {
-    public float fadeInTime = 5f;
-    public float fadeOutTime = 8f;
-    public float fadeDelay = 1f;
-    public Color startColor;
-    public Color endColor;
+    //Variables
+    public GameObject cube;
+    public int numberOfCubes = 10;
+    public float spaceing = 3.0f;
+    private List<GameObject> cubeCopies = new List<GameObject>();
+    bool change;
 
-    public SpriteRenderer _spriteRender;
-
-    private void Awake()
-    {
-        _spriteRender = GetComponent<SpriteRenderer>();
-    }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(colourLerpIn());
-    }
-
-    IEnumerator colourLerpIn()
-    {
-        for (float t = 0.01f; t<fadeInTime; t+=0.1f)
+        change = true;
+        //Create and array of cubes spaced apart
+        for (int i = 0; i < numberOfCubes; i++)
         {
-            _spriteRender.material.color = Color.Lerp(startColor, endColor, t / fadeInTime);
+            Vector3 cubeCopyPosition = new Vector3(i * spaceing, 1, 1);
+            Quaternion cubeCopyRotation = Quaternion.identity;
+            GameObject cubeCopy = Instantiate(cube, cubeCopyPosition, cubeCopyRotation);
+            cubeCopy.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.00f, 1.00f), Random.Range(0.00f, 1.00f), Random.Range(0.00f, 1.00f));
+            cubeCopies.Add(cubeCopy);
+        }
+        StartCoroutine (changeColor());
+    }
+    IEnumerator changeColor()
+    {
+        while (change == true)
+        {
+            foreach (GameObject cubeCopy in cubeCopies)
+            {
+                Color Color = new Color(Random.Range(-5.0f, 12.0f), Random.Range(3.0f, 14.0f), Random.Range(-8.0f, 6.0f));
+                cubeCopy.GetComponent<MeshRenderer>().material.color = Color;
+            }
             yield return null;
         }
-        yield return new WaitForSeconds(fadeDelay);
-        StartCoroutine(colorLerpOut());
     }
-
-    IEnumerator colorLerpOut()
+    private void OnGUI()
     {
-        for (float t = 0.01f; t < fadeOutTime; t += 0.1f)
+        if (GUI.Button(new Rect(20, 20, 200, 40), "Click Here to Stop"))
         {
-            _spriteRender.material.color = Color.Lerp(endColor, startColor, t / fadeOutTime);
-            yield return null;
+            change = false;
         }
     }
 }
